@@ -228,29 +228,41 @@ fibonacci(8)
  func highestScore(_ people: [[String: Any]]) -> String
  */
 
-func highestScore(_ people: [[String: Any]]) -> String {
-    //var nameOfHighestScore: String = ""
-    //var highestScore: Int = 0
-    
-    for p in people {
-        print(p)
-    }
-    
-    return "done"
-}
-
 let people: [[String: Any]] = [
     [
-        "firstName": String(),
-        "lastName": String(),
-        "score": Int()
+        "firstName": "Darth",
+        "lastName": "Vader",
+        "score": 8
     ],
     [
-        "firstName": String(),
-        "lastName": String(),
-        "score": Int()
+        "firstName": "Master",
+        "lastName": "Yoda",
+        "score": 11
+    ],
+    [
+        "firstName": "Obi-Wan",
+        "lastName": "Kenobi",
+        "score": 9
     ],
 ]
+
+func highestScore(_ people: [[String: Any]]) -> String {
+    var nameOfHighestScore: String = ""
+    var highestScore: Int = 0
+    
+    for p in people {
+        let score = p["score"]
+        if score as! Int > highestScore {
+            let firstName = p["firstName"]
+            let lastName = p["lastName"]
+            highestScore = score as! Int
+            nameOfHighestScore = (firstName as! String) + " " + (lastName as! String)
+        }
+            
+    }
+    
+    return nameOfHighestScore
+}
 
 
 highestScore(people)
